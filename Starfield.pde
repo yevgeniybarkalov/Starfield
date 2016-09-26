@@ -41,6 +41,12 @@ void draw()
 		jumbos[i].show();
 	}
 }
+interface Particle
+{
+	final int staticRADIUS = 175;
+	final int staticSIZE = 30;
+	final double staticSpeed = 0.05;
+}
 class NormalParticle implements Particle
 {
 	double angle;
@@ -62,12 +68,6 @@ class NormalParticle implements Particle
 			(int)(mouseY+staticRADIUS*Math.cos(angle)),
 				staticSIZE,staticSIZE);
 	}
-}
-interface Particle
-{
-	final int staticRADIUS = 175;
-	final int staticSIZE = 30;
-	final double staticSpeed = 0.05;
 }
 class OddballParticle implements Particle
 {
