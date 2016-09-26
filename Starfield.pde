@@ -15,6 +15,7 @@ NormalParticle np,np2;
 NormalParticle[] particles;
 OddballParticle[] oddballs;
 JumboParticle[] jumbos;
+int theDirection = 1;
 //your code here
 void setup()
 {
@@ -32,7 +33,7 @@ void setup()
 }
 void draw()
 {
-	//background(128);
+	background(128);
 	for (int i = 0; i < 100; i++)
 	{
 		particles[i].show();
@@ -56,7 +57,7 @@ class NormalParticle implements Particle
 	void show()
 	{
 		fill(r,g,b);
-		angle+=staticSpeed;
+		angle+=staticSpeed*theDirection;
 		ellipse((int)(mouseX+staticRADIUS*Math.sin(angle)),
 			(int)(mouseY+staticRADIUS*Math.cos(angle)),
 				staticSIZE,staticSIZE);
@@ -64,8 +65,8 @@ class NormalParticle implements Particle
 }
 interface Particle
 {
-	final int staticRADIUS = 125;
-	final int staticSIZE = 25;
+	final int staticRADIUS = 175;
+	final int staticSIZE = 30;
 	final double staticSpeed = 0.05;
 }
 class OddballParticle implements Particle
@@ -85,11 +86,11 @@ class OddballParticle implements Particle
 	void show()
 	{
 		fill(r,g,b);
-		angle+=2*staticSpeed;
-		radiusIncrement+=20*Math.sin(angle);
+		angle+=1.5*staticSpeed*theDirection;
+		radiusIncrement+=20*Math.sin(10*angle);
 
-		ellipse((int)(mouseX+(staticRADIUS+radiusIncrement)*Math.sin(angle)),
-			(int)(mouseY+(staticRADIUS+radiusIncrement)*Math.cos(angle)),
+		ellipse((int)(mouseX+(staticRADIUS*1.5+radiusIncrement)*Math.sin(angle)),
+			(int)(mouseY+(staticRADIUS*1.5+radiusIncrement)*Math.cos(angle)),
 				staticSIZE,staticSIZE);
 	}
 }
@@ -101,9 +102,9 @@ class JumboParticle extends NormalParticle
 	void show()
 	{
 		fill(r,g,b);
-		angle+=2*staticSpeed;
+		angle+=2*staticSpeed*theDirection*-1;
 		myRadius += increment;
-		if (myRadius > 200 || myRadius < 1)
+		if (myRadius > 350 || myRadius < 1)
 		{
 			increment*=(-1);
 		}
@@ -114,3 +115,7 @@ class JumboParticle extends NormalParticle
 	}
 }
 
+void mousePressed()
+{
+	theDirection*=-1;
+}
