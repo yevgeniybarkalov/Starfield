@@ -45,7 +45,7 @@ interface Particle
 {
 	final int staticRADIUS = 175;
 	final int staticSIZE = 30;
-	final double staticSpeed = 0.05;
+	final double slowSpeed = 0.05;
 }
 class NormalParticle implements Particle
 {
@@ -63,7 +63,7 @@ class NormalParticle implements Particle
 	void show()
 	{
 		fill(r,g,b);
-		angle+=staticSpeed*theDirection;
+		angle+=slowSpeed*theDirection;
 		ellipse((int)(mouseX+staticRADIUS*Math.sin(angle)),
 			(int)(mouseY+staticRADIUS*Math.cos(angle)),
 				staticSIZE,staticSIZE);
@@ -86,7 +86,7 @@ class OddballParticle implements Particle
 	void show()
 	{
 		fill(r,g,b);
-		angle+=1.5*staticSpeed*theDirection;
+		angle+=1.5*slowSpeed*theDirection;
 		radiusIncrement+=20*Math.sin(10*angle);
 
 		ellipse((int)(mouseX+(staticRADIUS*1.5+radiusIncrement)*Math.sin(angle)),
@@ -102,7 +102,7 @@ class JumboParticle extends NormalParticle
 	void show()
 	{
 		fill(r,g,b);
-		angle+=2*staticSpeed*theDirection*-1;
+		angle+=2*slowSpeed*theDirection*-1;
 		myRadius += increment;
 		if (myRadius > 350 || myRadius < 1)
 		{
