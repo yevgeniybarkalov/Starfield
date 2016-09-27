@@ -1,7 +1,9 @@
 //TODO find what the problem with slowSpeed is
+final int staticRADIUS = 175;
+final int staticSIZE = 30;
+final float slowSpeed = 0.05;
 final int arraySize = 150;
 final int screenCenter = 350;
-final float slowSpeed = 0.05;
 NormalParticle np,np2;
 NormalParticle[] particles;
 OddballParticle[] oddballs;
@@ -10,9 +12,7 @@ int theDirection = 1;
 //your code here
 interface Particle
 {
-	final int staticRADIUS = 175;
-	final int staticSIZE = 30;
-	//final float slowSpeed = 0.05;
+	public void show();
 }
 void setup()
 {
