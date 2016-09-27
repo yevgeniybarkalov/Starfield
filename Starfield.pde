@@ -35,7 +35,7 @@ interface Particle
 {
 	final int staticRADIUS = 175;
 	final int staticSIZE = 30;
-	final float lowSpeed = 0.05;
+	final float slowSpeed = 0.05;
 }
 class NormalParticle implements Particle
 {
@@ -44,7 +44,7 @@ class NormalParticle implements Particle
 	
 	NormalParticle()
 	{
-		angle = Math.random()*6.283;
+		angle = (float)Math.random()*6.283;
 		r = (int)(Math.random()*256);
 		g = (int)(Math.random()*256);
 		b = (int)(Math.random()*256);
@@ -67,7 +67,7 @@ class OddballParticle implements Particle
 	
 	OddballParticle()
 	{
-		angle = Math.random()*6.283;
+		angle = (float)Math.random()*6.283;
 		r = (int)(Math.random()*256);
 		g = (int)(Math.random()*256);
 		b = (int)(Math.random()*256);
