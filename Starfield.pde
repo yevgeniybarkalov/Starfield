@@ -16,7 +16,7 @@ interface Particle
 }
 void setup()
 {
-	size(750,750);
+	size(750,500);
 	particles = new NormalParticle[arraySize];
 	oddballs = new OddballParticle[arraySize];
 	jumbos = new JumboParticle[arraySize];
