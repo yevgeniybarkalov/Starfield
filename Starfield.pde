@@ -1,5 +1,5 @@
 //TODO find what the problem with slowSpeed is
-final int staticRADIUS = 175;
+final int staticRADIUS = 125;
 final int staticSIZE = 30;
 final float slowSpeed = 0.05;
 final int arraySize = 150;
@@ -95,7 +95,7 @@ class JumboParticle extends NormalParticle
 		fill(r,g,b);
 		angle+=2*slowSpeed*theDirection*-1;
 		myRadius += increment;
-		if (myRadius > 350 || myRadius < 1)
+		if (myRadius > 250 || myRadius < 1)
 		{
 			increment*=(-1);
 		}
