@@ -1,41 +1,42 @@
 //TODO find what the problem with slowSpeed is
-
+final int arraySize = 150;
 final int screenCenter = 350;
+final float slowSpeed = 0.05;
 NormalParticle np,np2;
 NormalParticle[] particles;
 OddballParticle[] oddballs;
 JumboParticle[] jumbos;
 int theDirection = 1;
 //your code here
+interface Particle
+{
+	final int staticRADIUS = 175;
+	final int staticSIZE = 30;
+	//final float slowSpeed = 0.05;
+}
 void setup()
 {
 	size(750,750);
-	particles = new NormalParticle[100];
-	oddballs = new OddballParticle[100];
-	jumbos = new JumboParticle[100];
-	for (int i = 0; i < 100; i++)
+	particles = new NormalParticle[arraySize];
+	oddballs = new OddballParticle[arraySize];
+	jumbos = new JumboParticle[arraySize];
+	for (int i = 0; i < arraySize; i++)
 		particles[i] = new NormalParticle();
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < arraySize; i++)
 		oddballs[i] = new OddballParticle();
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < arraySize; i++)
 		jumbos[i] = new JumboParticle();
 	draw();
 }
 void draw()
 {
 	background(128);
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < arraySize; i++)
 	{
 		particles[i].show();
 		oddballs[i].show();
 		jumbos[i].show();
 	}
-}
-interface Particle
-{
-	final int staticRADIUS = 175;
-	final int staticSIZE = 30;
-	final float slowSpeed = 0.05;
 }
 class NormalParticle implements Particle
 {
