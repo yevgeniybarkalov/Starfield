@@ -1,14 +1,4 @@
-//TODO enlarge radius, enlarge number of stars, follow cursor
-
-/*
-
-Use center of window as center of circle
-current angle++ for every iteration
-it's in radians
-x=center+RcosAngle
-y=center+RsinAngle
-
-*/
+//TODO find what the problem with slowSpeed is
 
 final int screenCenter = 350;
 NormalParticle np,np2;
@@ -45,11 +35,11 @@ interface Particle
 {
 	final int staticRADIUS = 175;
 	final int staticSIZE = 30;
-	final double slowSpeed = 0.05;
+	final float lowSpeed = 0.05;
 }
 class NormalParticle implements Particle
 {
-	double angle;
+	float angle;
 	int r,g,b;
 	
 	NormalParticle()
@@ -72,7 +62,7 @@ class NormalParticle implements Particle
 class OddballParticle implements Particle
 {
 	int radiusIncrement = 0;
-	double angle;
+	float angle;
 	int r,g,b;
 	
 	OddballParticle()
