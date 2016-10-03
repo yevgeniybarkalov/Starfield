@@ -1,15 +1,10 @@
-//TODO find what the problem with slowSpeed is
 final int staticRADIUS = 125;
 final int staticSIZE = 30;
 final float slowSpeed = 0.05;
-final int arraySize = 150;
+final int arraySize = 1200;
 final int screenCenter = 350;
-NormalParticle np,np2;
-NormalParticle[] particles;
-OddballParticle[] oddballs;
-JumboParticle[] jumbos;
 int theDirection = 1;
-//your code here
+Particle[] theArray;
 interface Particle
 {
 	public void show();
@@ -17,26 +12,20 @@ interface Particle
 void setup()
 {
 	size(750,500);
-	particles = new NormalParticle[arraySize];
-	oddballs = new OddballParticle[arraySize];
-	jumbos = new JumboParticle[arraySize];
-	for (int i = 0; i < arraySize; i++)
-		particles[i] = new NormalParticle();
-	for (int i = 0; i < arraySize; i++)
-		oddballs[i] = new OddballParticle();
-	for (int i = 0; i < arraySize; i++)
-		jumbos[i] = new JumboParticle();
+	theArray = new Particle[arraySize];
+	for (int i = 0; i < arraySize; i+=3)
+	{
+		theArray[i] = new NormalParticle();
+		theArray[i+1] = new OddballParticle();
+		theArray[i+2] =  new JumboParticle();
+	}
 	draw();
 }
 void draw()
 {
 	background(128);
 	for (int i = 0; i < arraySize; i++)
-	{
-		particles[i].show();
-		oddballs[i].show();
-		jumbos[i].show();
-	}
+		theArray[i].show();
 }
 class NormalParticle implements Particle
 {
@@ -105,7 +94,6 @@ class JumboParticle extends NormalParticle
 				staticSIZE,staticSIZE);
 	}
 }
-
 void mousePressed()
 {
 	theDirection*=-1;
