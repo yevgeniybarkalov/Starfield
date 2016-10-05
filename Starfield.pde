@@ -23,7 +23,7 @@ void setup()
 }
 void draw()
 {
-	background(128);
+	 background(128);
 	for (int i = 0; i < arraySize; i++)
 		theArray[i].show();
 }
@@ -44,8 +44,8 @@ class NormalParticle implements Particle
 	{
 		fill(r,g,b);
 		angle+=slowSpeed*theDirection;
-		ellipse((int)(mouseX+staticRADIUS*Math.sin(angle)),
-			(int)(mouseY+staticRADIUS*Math.cos(angle)),
+		ellipse((int)(mouseX+staticRADIUS*Math.cos(angle)),
+			(int)(mouseY+staticRADIUS*Math.sin(angle)),
 				staticSIZE,staticSIZE);
 	}
 }
@@ -69,8 +69,8 @@ class OddballParticle implements Particle
 		angle+=1.5*slowSpeed*theDirection;
 		radiusIncrement+=20*Math.sin(10*angle);
 
-		ellipse((int)(mouseX+(staticRADIUS*1.5+radiusIncrement)*Math.sin(angle)),
-			(int)(mouseY+(staticRADIUS*1.5+radiusIncrement)*Math.cos(angle)),
+		ellipse((int)(mouseX+(staticRADIUS*1.5+radiusIncrement)*Math.cos(angle)),
+			(int)(mouseY+(staticRADIUS*1.5+radiusIncrement)*Math.sin(angle)),
 				staticSIZE,staticSIZE);
 	}
 }
@@ -89,8 +89,8 @@ class JumboParticle extends NormalParticle
 			increment*=(-1);
 		}
 
-		ellipse((int)(mouseX+myRadius*Math.sin(angle)),
-			(int)(mouseY+myRadius*Math.cos(angle)),
+		ellipse((int)(mouseX+myRadius*Math.cos(angle)),
+			(int)(mouseY+myRadius*Math.sin(angle)),
 				staticSIZE,staticSIZE);
 	}
 }
